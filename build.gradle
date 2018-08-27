@@ -12,6 +12,17 @@ repositories {
     }
 }
 
+sourceSets {
+    main {
+        java {
+            srcDirs= ["src/main/java"]
+        }
+        resources {
+            srcDirs= ["src/main/resources"]
+        }
+    }
+}
+
 dependencies {
     compile group: 'com.google.guava', name: 'guava', version: '26.0-jre'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
