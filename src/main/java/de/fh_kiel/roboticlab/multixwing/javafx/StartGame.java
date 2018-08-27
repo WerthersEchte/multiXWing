@@ -1,11 +1,7 @@
 package de.fh_kiel.roboticlab.multixwing.javafx;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.input.RotateEvent;
-import javafx.scene.input.ScrollEvent;
-import javafx.scene.input.ZoomEvent;
 
 import java.io.IOException;
 
