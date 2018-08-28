@@ -23,6 +23,8 @@ import org.tuiofx.TuioFX;
 
 import java.io.IOException;
 
+import static de.fh_kiel.roboticlab.multixwing.javafx.Helper.moveToMouseAndRotateToNearestBorder;
+
 public class Main extends Application {
 
     public static void main(String[] args) {
@@ -34,7 +36,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws IOException {
 
         final Pane root = new Pane();
-        final Scene scene = new Scene(root, 1920, 1080);
+        final Scene scene = new Scene(root, 800, 600);
 
         final Parent newGame = StartGame.get();
 
@@ -45,9 +47,7 @@ public class Main extends Application {
                 try {
                     Parent vMainMenu = MainMenu.get();
                     root.getChildren().add(vMainMenu);
-
-                    vMainMenu.setLayoutX(me.getX());
-                    vMainMenu.setLayoutY(me.getY());
+                    moveToMouseAndRotateToNearestBorder(vMainMenu,me);
                 }catch(IOException vIOException){
                     vIOException.printStackTrace();
                 }
