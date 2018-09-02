@@ -1,5 +1,6 @@
 package de.fh_kiel.roboticlab.multixwing.javafx;
 
+import de.fh_kiel.roboticlab.multixwing.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,6 +12,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static de.fh_kiel.roboticlab.multixwing.Main.addChildToRootPane;
+import static de.fh_kiel.roboticlab.multixwing.Main.removeChildFromRootPane;
+import static de.fh_kiel.roboticlab.multixwing.javafx.Helper.moveToMouseAndRotateToNearestBorder;
+
 public class MainMenu implements Initializable {
 
     public VBox mmVBox;
@@ -21,12 +26,23 @@ public class MainMenu implements Initializable {
 
     public void close(ActionEvent actionEvent) {
         mmVBox.setVisible(false);
-        if (mmVBox.getParent() instanceof Pane) {
-            ((Pane) mmVBox.getParent()).getChildren().remove(mmVBox);
+        removeChildFromRootPane(mmVBox);
+    }
+
+    public void newGame(ActionEvent actionEvent) {
+        try {
+            Parent vNewGame = StartGame.get();
+            addChildToRootPane(vNewGame);
+            System.out.println(mmVBox.getTranslateX() + " " + mmVBox.getTranslateY());
+            moveToMouseAndRotateToNearestBorder(vNewGame,mmVBox.getTranslateX(), mmVBox.getTranslateY());
+            close(actionEvent);
+        } catch (IOException vIOException) {
+            vIOException.printStackTrace();
         }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
     }
 }

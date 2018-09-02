@@ -47,17 +47,17 @@ public class Helper {
         return aController;
     }
 
-    public static void moveToMouseAndRotateToNearestBorder( Parent aParent, MouseEvent aMouseevent ){
+    public static void moveToMouseAndRotateToNearestBorder( Parent aParent, double aX, double aY ){
         aParent.setVisible(false);
         Platform.runLater(new Runnable() {
             public void run() {
-                aParent.setTranslateX(aMouseevent.getX()-aParent.getLayoutBounds().getWidth()/2.0);
-                aParent.setTranslateY(aMouseevent.getY()-aParent.getLayoutBounds().getHeight()/2.0);
+                aParent.setTranslateX(aX-aParent.getLayoutBounds().getWidth()/2.0);
+                aParent.setTranslateY(aY-aParent.getLayoutBounds().getHeight()/2.0);
 
-                double upperDistance = aMouseevent.getY()/aParent.getParent().getLayoutBounds().getHeight(),
-                        lowerDistance = (aParent.getParent().getLayoutBounds().getHeight() - aMouseevent.getY())/aParent.getParent().getLayoutBounds().getHeight(),
-                        leftDistance = aMouseevent.getX()/aParent.getParent().getLayoutBounds().getWidth(),
-                        rightDistance = (aParent.getParent().getLayoutBounds().getWidth() - aMouseevent.getX())/aParent.getParent().getLayoutBounds().getWidth();
+                double upperDistance = aY/aParent.getParent().getLayoutBounds().getHeight(),
+                       lowerDistance = (aParent.getParent().getLayoutBounds().getHeight() - aY)/aParent.getParent().getLayoutBounds().getHeight(),
+                       leftDistance = aX/aParent.getParent().getLayoutBounds().getWidth(),
+                       rightDistance = (aParent.getParent().getLayoutBounds().getWidth() - aX)/aParent.getParent().getLayoutBounds().getWidth();
 
                 if( upperDistance < lowerDistance && upperDistance < leftDistance && upperDistance < rightDistance ){
                     aParent.setRotate(180.0);

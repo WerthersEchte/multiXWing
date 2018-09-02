@@ -32,22 +32,33 @@ public class Main extends Application {
         launch(args);
     }
 
+    private static final Pane mRoot = new Pane();
+    public static Pane getRootPane(){
+        return mRoot;
+    }
+
+    public static void addChildToRootPane(Node aNode){
+        mRoot.getChildren().add(aNode);
+    }
+
+    public static void removeChildFromRootPane(Node aNode){
+        mRoot.getChildren().remove(aNode);
+    }
+
+
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-        final Pane root = new Pane();
-        final Scene scene = new Scene(root, 800, 600);
+        final Scene scene = new Scene(getRootPane(), 800, 600);
 
-        final Parent newGame = StartGame.get();
-
-        scene.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent me) -> {
-            if(me.getButton().equals(MouseButton.SECONDARY)) {
+        scene.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent aMouseEvent) -> {
+            if(aMouseEvent.getButton().equals(MouseButton.SECONDARY)) {
                 //Circle circle = new Circle(me.getX(), me.getY(), 10, Color.BLUE);
                 //root.getChildren().add(circle);
                 try {
                     Parent vMainMenu = MainMenu.get();
-                    root.getChildren().add(vMainMenu);
-                    moveToMouseAndRotateToNearestBorder(vMainMenu,me);
+                    addChildToRootPane(vMainMenu);
+                    moveToMouseAndRotateToNearestBorder(vMainMenu,aMouseEvent.getX(), aMouseEvent.getY());
                 }catch(IOException vIOException){
                     vIOException.printStackTrace();
                 }

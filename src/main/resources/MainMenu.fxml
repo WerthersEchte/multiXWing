@@ -7,7 +7,7 @@
 
 <VBox fx:id="mmVBox" alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fh_kiel.roboticlab.multixwing.javafx.MainMenu">
    <children>
-      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="New Game">
+      <Button fx:id="mmNewGame" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#newGame" text="New Game">
          <font>
             <Font size="20.0" />
          </font>

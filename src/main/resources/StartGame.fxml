@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="newgamepane" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fh_kiel.roboticlab.multixwing.javafx.StartGame">
+<VBox fx:id="ngVBox" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fh_kiel.roboticlab.multixwing.javafx.StartGame">
    <children>
       <Label text="New Game">
          <font>
@@ -22,17 +22,17 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" text="-">
+            <Button mnemonicParsing="false" onAction="#decreaseSquadnumber" text="-">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Label text="2">
+            <Label fx:id="ngSquadnumber" text="2">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" text="+">
+            <Button mnemonicParsing="false" onAction="#increaseSquadnumber" text="+">
                <font>
                   <Font size="20.0" />
                </font>
@@ -45,7 +45,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField alignment="CENTER_RIGHT" prefWidth="60.0" promptText="W" text="90" HBox.hgrow="NEVER">
+            <TextField fx:id="ngAreasizeX" alignment="CENTER_RIGHT" prefWidth="60.0" promptText="W" text="90" HBox.hgrow="NEVER">
                <font>
                   <Font size="20.0" />
                </font>
@@ -55,22 +55,22 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <TextField prefWidth="60.0" promptText="H" text="90" HBox.hgrow="NEVER">
+            <TextField fx:id="ngAreasizeY" prefWidth="60.0" promptText="H" text="90" HBox.hgrow="NEVER">
                <font>
                   <Font size="20.0" />
                </font>
             </TextField>
-            <Button mnemonicParsing="false" text="90x90">
+            <Button mnemonicParsing="false" onAction="#setAreasize90x90" text="90x90">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" text="90x180">
+            <Button mnemonicParsing="false" onAction="#setAreasize90x180" text="90x180">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" text="Max">
+            <Button mnemonicParsing="false" onAction="#seAreasizeMax" text="Max">
                <font>
                   <Font size="20.0" />
                </font>
@@ -79,12 +79,12 @@
       </HBox>
       <HBox alignment="CENTER" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" text="OK">
+            <Button mnemonicParsing="false" onAction="#startNewGame" text="OK">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" text="Cancel">
+            <Button mnemonicParsing="false" onAction="#close" text="Cancel">
                <font>
                   <Font size="20.0" />
                </font>
@@ -99,6 +99,6 @@
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
    </padding>
     <stylesheets>
-        <URL value="@StartGame.css" />
+        <URL value="@css/StartGame.css" />
     </stylesheets>
 </VBox>
