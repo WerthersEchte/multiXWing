@@ -12,7 +12,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Options">
+      <Button alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openOptions" text="Options">
          <font>
             <Font size="20.0" />
          </font>

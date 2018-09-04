@@ -11,11 +11,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static de.fh_kiel.roboticlab.multixwing.javafx.Constants.PIXELPERCMX;
+import static de.fh_kiel.roboticlab.multixwing.javafx.Constants.PIXELPERCMY;
+import static de.fh_kiel.roboticlab.multixwing.javafx.Helper.initControllerForTUIOFX;
+
 public class Game extends AnchorPane {
 
     public static Parent get(Match aMatch) throws IOException {
         Game vGame = new Game(aMatch);
-        return vGame;
+        return initControllerForTUIOFX(vGame, false, true, true);
     }
 
     public Game(Match aMatch) {
@@ -38,10 +42,10 @@ public class Game extends AnchorPane {
     private void setMatch(Match aMatch) {
         mMatch = aMatch;
 
-        gPane.setMaxWidth(mMatch.getAreasizeX());
-        gPane.setMinWidth(mMatch.getAreasizeX());
+        gPane.setMaxWidth(mMatch.getAreasizeX()*PIXELPERCMX);
+        gPane.setMinWidth(mMatch.getAreasizeX()*PIXELPERCMX);
 
-        gPane.setMaxHeight(mMatch.getAreasizeY());
-        gPane.setMinHeight(mMatch.getAreasizeY());
+        gPane.setMaxHeight(mMatch.getAreasizeY()*PIXELPERCMY);
+        gPane.setMinHeight(mMatch.getAreasizeY()*PIXELPERCMY);
     }
 }

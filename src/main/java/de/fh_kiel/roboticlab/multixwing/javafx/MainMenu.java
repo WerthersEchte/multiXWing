@@ -33,7 +33,6 @@ public class MainMenu implements Initializable {
         try {
             Parent vNewGame = StartGame.get();
             addChildToRootPane(vNewGame);
-            System.out.println(mmVBox.getTranslateX() + " " + mmVBox.getTranslateY());
             moveToMouseAndRotateToNearestBorder(vNewGame,mmVBox.getTranslateX(), mmVBox.getTranslateY());
             close(actionEvent);
         } catch (IOException vIOException) {
@@ -44,5 +43,16 @@ public class MainMenu implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void openOptions(ActionEvent actionEvent) {
+        try {
+            Parent vOptions = Options.get();
+            addChildToRootPane(vOptions);
+            moveToMouseAndRotateToNearestBorder(vOptions,mmVBox.getTranslateX(), mmVBox.getTranslateY());
+            close(actionEvent);
+        } catch (IOException vIOException) {
+            vIOException.printStackTrace();
+        }
     }
 }
