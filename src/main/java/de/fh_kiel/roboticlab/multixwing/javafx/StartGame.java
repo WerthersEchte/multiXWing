@@ -68,6 +68,7 @@ public class StartGame{
             );
 
             addChildToRootPane(Game.get(vNewMatch));
+            close(actionEvent);
         } catch (IOException vException) {
             vException.printStackTrace();
         }
